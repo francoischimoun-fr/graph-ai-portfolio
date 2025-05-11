@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --primary: #0B7285;
-      --secondary: #184E77;
-      --accent: #FFB703;
+      /* Green primaries with light‑blue accent */
+      --primary: #009c5a;
+      --secondary: #006d3b;
+      --accent: #4ab6ff; /* light blue */
       --bg: #F5F7FA;
       --text: #2E2E2E;
       --light: #ffffff;
@@ -16,6 +17,12 @@
     }
 
     * { box-sizing: border-box; }
+
+    /* Headings */
+    h1, h2, h3 {
+      font-family: 'Arial Black', Gadget, sans-serif;
+      font-weight: 900;
+    }
 
     body {
       margin: 0;
@@ -33,33 +40,15 @@
       box-shadow: var(--shadow);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+    header h1 { margin: 0; font-size: 2.5rem; }
 
-    header p {
-      font-size: 1.25rem;
-      opacity: .9;
-      max-width: 800px;
-      margin: 1rem auto 0;
-    }
+    header p { font-size: 1.25rem; opacity: .9; max-width: 800px; margin: 1rem auto 0; }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
+    .container { max-width: 1050px; margin: 0 auto; padding: 2rem 1rem; }
 
-    section {
-      margin-bottom: 4rem;
-    }
+    section { margin-bottom: 4rem; }
 
-    section h2 {
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      position: relative;
-    }
+    section h2 { color: var(--secondary); margin-bottom: 1rem; position: relative; }
 
     section h2::after {
       content: '';
@@ -70,100 +59,60 @@
       margin-top: .5rem;
     }
 
-    /* About Me */
-    .about-me .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
+    /* About me grid */
+    .about-me .grid { display: flex; flex-wrap: wrap; gap: 2rem; }
 
-    .about-me img {
-      flex: 0 0 220px;
-      max-width: 220px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-    }
+    .about-me img { flex: 0 0 220px; max-width: 220px; border-radius: 10px; box-shadow: var(--shadow); }
 
-    .about-me .bio {
-      flex: 1;
-      min-width: 250px;
-    }
+    .about-me .bio { flex: 1; min-width: 250px; }
 
-    .key-points {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: .5rem 1rem;
-    }
+    .key-points { list-style: none; padding: 0; margin: 1rem 0 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .5rem 1rem; }
 
-    .key-points li::before {
-      content: '\2713';
-      color: var(--accent);
-      margin-right: .5rem;
-    }
+    .key-points li::before { content: '\2713'; color: var(--accent); margin-right: .5rem; }
 
     /* Course Outline */
-    .course-outline ul {
-      list-style: disc inside;
-      margin: 0;
-      padding-left: 1rem;
-    }
+    .course-outline ul { list-style: disc inside; margin: 0; padding-left: 1rem; }
 
     /* Submissions */
-    .submissions ul {
-      list-style: none;
-      padding: 0;
-    }
+    .submissions ul { list-style: none; padding: 0; }
+    .submissions li { background: var(--light); padding: .75rem 1rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: .75rem; }
 
-    .submissions li {
-      background: var(--light);
-      padding: .75rem 1rem;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      margin-bottom: .75rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: .875rem;
-      color: #666;
-    }
+    footer { text-align: center; padding: 2rem 1rem; font-size: .875rem; color: #666; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Generative AI for Work &amp; Research<br>Portfolio</h1>
+  <h1>Generative AI &amp; Research<br>Portfolio</h1>
   <p>Showcasing weekly deliverables and strategic insights powered by cutting‑edge AI tooling.</p>
 </header>
 
 <main class="container">
 
-  <!-- About Me Section -->
+  <!-- About Me -->
   <section id="about-me" class="about-me">
     <h2>About Me</h2>
+
     <div class="grid">
-      <!-- Optional profile picture: uncomment and replace src if available -->
-      <!-- <img src="headshot.jpg" alt="Francois"/> -->
+      <!-- Optional profile picture -->
+      <!-- <img src="headshot.jpg" alt="Francois" /> -->
+
       <div class="bio">
-        <p>I'm Dr. Francois, a bilingual public health physician and program management specialist with over a decade of leadership driving high‑impact health initiatives across Sub‑Saharan Africa. Currently serving as a Technical Lead Specialist at <em>The Global Fund</em>, I shape multimillion‑dollar investments that strengthen health systems, accelerate HIV, TB, and malaria control, and advance pandemic preparedness.</p>
+        <p>I'm Francois, a bilingual (French and English) public health physician and program management specialist with over a decade of experience driving high‑impact health programs across Sub‑Saharan Africa. As Public Health Lead Specialist at <em>The Global Fund</em>, I lead investments that strengthen health systems, advance HIV, TB &amp; malaria control, and integrate sexual and reproductive health and rights into primary health care.</p>
         <ul class="key-points">
-          <li>Strategic advisory &amp; grant design (&gt; US$ 950 M in cycles 6‑7)</li>
-          <li>Data‑driven M&amp;E frameworks &amp; impact analytics</li>
-          <li>Stakeholder mobilisation &amp; cross‑sector partnerships</li>
-          <li>Health innovation scaling &amp; change management</li>
+          <li>Strategic Advisory &amp; Grant Design and Implementation </li>
+          <li>Data‑driven M&amp;E frameworks &amp; Impact Analytics</li>
+          <li>Stakeholder Engagement &amp; Cross‑sector Partnerships</li>
+          <li>Health Innovation Scaling &amp; Program and Change Management</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- About the Course Section -->
+  <!-- About the Course -->
   <section id="about-course" class="about-course">
     <h2>About the Course</h2>
-    <p><strong>Generative AI for Work &amp; Research Productivity</strong> is an intensive 8‑week, live online certification that empowers professionals to harness no‑code AI tools for measurable productivity gains.</p>
+    <p><strong>Generative AI for Work &amp; Research Productivity</strong> is an intensive 8‑week, live online certification equipping health &amp; life‑science professionals with practical no‑code AI skills.</p>
 
     <div class="course-outline">
       <h3>Key Modules</h3>
@@ -172,33 +121,33 @@
         <li>Automated Data Analysis – Julius, ChatGPT Code Interpreter, Windsurf dashboards</li>
         <li>GenAI for Research &amp; Text Analysis – Elicit, LiteRev, advanced text workflows</li>
         <li>Custom GPTs &amp; Chatbots – RAG systems, Botpress, API integrations</li>
-        <li>AI Workflows &amp; Task Automation – Lindy, Make.com orchestration</li>
+        <li>AI Workflows &amp; Task Automation – Lindy &amp; Make.com orchestration</li>
         <li>GenAI for Communication &amp; Outreach – Ideogram, InVideo AI, marketing flows</li>
         <li>Capstone Project &amp; Showcase – solution design &amp; peer feedback</li>
       </ul>
     </div>
   </section>
 
-  <!-- Weekly Submissions Section -->
+  <!-- Weekly Submissions -->
   <section id="submissions" class="submissions">
     <h2>My Weekly Submissions</h2>
-    <p>Links will be activated as each deliverable is finalised.</p>
+    <p>Links will activate as each deliverable is finalised.</p>
     <ul>
-      <li>Week&nbsp;1 – Coming soon</li>
-      <li>Week&nbsp;2 – Coming soon</li>
-      <li>Week&nbsp;3 – Coming soon</li>
-      <li>Week&nbsp;4 – Coming soon</li>
-      <li>Week&nbsp;5 – Coming soon</li>
-      <li>Week&nbsp;6 – Coming soon</li>
-      <li>Week&nbsp;7 – Coming soon</li>
-      <li>Week&nbsp;8 – Coming soon</li>
+      <li>Week 1 – Coming soon</li>
+      <li>Week 2 – Coming soon</li>
+      <li>Week 3 – Coming soon</li>
+      <li>Week 4 – Coming soon</li>
+      <li>Week 5 – Coming soon</li>
+      <li>Week 6 – Coming soon</li>
+      <li>Week 7 – Coming soon</li>
+      <li>Week 8 – Coming soon</li>
     </ul>
   </section>
 
 </main>
 
 <footer>
-  © 2025 Francois | Site crafted with modern HTML5 &amp; CSS3. No personal contact details published.
+  © 2025 Francois | Site crafted with modern HTML5 &amp; CSS3. No personal contact details published.
 </footer>
 
 </body>
