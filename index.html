@@ -2,128 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Generative AI for Work &amp; Research – Portfolio | Francois</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francois Chimoun – GenAI Portfolio</title>
   <style>
     :root {
-      /* Green primaries with light‑blue accent */
-      --primary: #009c5a;
-      --secondary: #006d3b;
-      --accent: #4ab6ff; /* light blue */
-      --bg: #F5F7FA;
-      --text: #2E2E2E;
+      --dark: #111111;
       --light: #ffffff;
-      --shadow: 0 4px 8px rgba(0,0,0,0.05);
+      --accent: #ffd500; /* template‑like yellow */
+      --text: #2E2E2E;
+      --bg: #F6F8FA;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     * { box-sizing: border-box; }
-
-    /* Headings */
-    h1, h2, h3 {
-      font-family: 'Arial Black', Gadget, sans-serif;
-      font-weight: 900;
-    }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    /* -------------------------------------------------- */
+    /*  NAVBAR                                           */
+    /* -------------------------------------------------- */
+    .navbar {
+      background: var(--dark);
       color: var(--light);
-      padding: 4rem 1rem;
-      text-align: center;
-      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
     }
 
-    header h1 { margin: 0; font-size: 2.5rem; }
+    .navbar .brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--light);
+      text-decoration: none;
+    }
 
-    header p { font-size: 1.25rem; opacity: .9; max-width: 800px; margin: 1rem auto 0; }
+    .navbar nav {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-    .container { max-width: 1050px; margin: 0 auto; padding: 2rem 1rem; }
+    .navbar nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
 
-    section { margin-bottom: 4rem; }
+    .navbar nav a:hover { opacity: 1; }
 
-    section h2 { color: var(--secondary); margin-bottom: 1rem; position: relative; }
+    .btn-cv {
+      background: var(--accent);
+      border: none;
+      color: var(--dark);
+      padding: 0.55rem 1.25rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* -------------------------------------------------- */
+    /*  HERO                                             */
+    /* -------------------------------------------------- */
+    .hero {
+      max-width: 1100px;
+      margin: 2.5rem auto 3.5rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .hero img.profile {
+      width: 260px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .badges {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .badge.dark { background: var(--dark); color: var(--light); }
+    .badge.accent { background: var(--accent); color: var(--dark); }
+
+    /* -------------------------------------------------- */
+    /*  SECTIONS                                         */
+    /* -------------------------------------------------- */
+    main section {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      padding: 0 1rem;
+    }
+
+    section h2 {
+      font-family: 'Arial Black', Gadget, sans-serif;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      position: relative;
+    }
 
     section h2::after {
       content: '';
-      display: block;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
       width: 60px;
       height: 4px;
       background: var(--accent);
-      margin-top: .5rem;
     }
 
-    /* About me grid */
-    .about-me .grid { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .key-points {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.7rem 1rem;
+    }
 
-    .about-me img { flex: 0 0 220px; max-width: 220px; border-radius: 10px; box-shadow: var(--shadow); }
+    .key-points li::before {
+      content: "✔";
+      color: var(--accent);
+      margin-right: 0.45rem;
+    }
 
-    .about-me .bio { flex: 1; min-width: 250px; }
-
-    .key-points { list-style: none; padding: 0; margin: 1rem 0 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .5rem 1rem; }
-
-    .key-points li::before { content: '\2713'; color: var(--accent); margin-right: .5rem; }
-
-    /* Course Outline */
     .course-outline ul { list-style: disc inside; margin: 0; padding-left: 1rem; }
 
-    /* Submissions */
     .submissions ul { list-style: none; padding: 0; }
-    .submissions li { background: var(--light); padding: .75rem 1rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: .75rem; }
+    .submissions li {
+      background: var(--light);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 0.75rem;
+    }
 
-    footer { text-align: center; padding: 2rem 1rem; font-size: .875rem; color: #666; }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Generative AI &amp; Research<br>Portfolio</h1>
-  <p>Showcasing weekly deliverables and strategic insights powered by cutting‑edge AI tooling.</p>
+<!-- NAVIGATION BAR -->
+<header class="navbar">
+  <a href="#top" class="brand">Francois Chimoun</a>
+  <nav>
+    <a href="#about-me">About</a>
+    <a href="#about-course">Course</a>
+    <a href="#submissions">Submissions</a>
+  </nav>
 </header>
 
-<main class="container">
+<!-- HERO SECTION (mirrors template style) -->
+<section class="hero" id="top">
+  <!-- Placeholder profile image -->
+  <img src="https://placehold.co/260x320" alt="Francois portrait" class="profile">
 
+  <div class="badges">
+    <span class="badge dark">Global Health Advisor - Change Maker - Program Management</span>
+  </div>
+</section>
+
+<main>
   <!-- About Me -->
-  <section id="about-me" class="about-me">
+  <section id="about-me">
     <h2>About Me</h2>
-
-    <div class="grid">
-      <!-- Optional profile picture -->
-      <!-- <img src="headshot.jpg" alt="Francois" /> -->
-
-      <div class="bio">
-        <p>I'm Francois, a bilingual (French and English) public health physician and program management specialist with over a decade of experience driving high‑impact health programs across Sub‑Saharan Africa. As Public Health Lead Specialist at <em>The Global Fund</em>, I lead investments that strengthen health systems, advance HIV, TB &amp; malaria control, and integrate sexual and reproductive health and rights into primary health care.</p>
-        <ul class="key-points">
-          <li>Strategic Advisory &amp; Grant Design and Implementation </li>
-          <li>Data‑driven M&amp;E frameworks &amp; Impact Analytics</li>
-          <li>Stakeholder Engagement &amp; Cross‑sector Partnerships</li>
-          <li>Health Innovation Scaling &amp; Program and Change Management</li>
-        </ul>
-      </div>
-    </div>
+    <p>I'm Francois, a bilingual (French &amp; English) public health physician and program management specialist with more than a decade of experience leading the design and implementation of large‑scale health investments across Sub‑Saharan Africa. As public health expert at <em>The Global Fund</em>, I work with governments and in-country partners to strengthen health systems, advance HIV, TB &amp; malaria response, and ensure integrated sexual &amp; reproductive health services at primary health care.</p>
+    <ul class="key-points">
+      <li>Strategic Advisory &amp; Grant Design and Implementation </li>
+      <li>Data‑Driven M&amp;E frameworks &amp; Impact Analytics</li>
+      <li>Stakeholder Engagement &amp; Cross‑sector Partnerships</li>
+    </ul>
   </section>
 
   <!-- About the Course -->
-  <section id="about-course" class="about-course">
+  <section id="about-course">
     <h2>About the Course</h2>
-    <p><strong>Generative AI for Work &amp; Research Productivity</strong> is an intensive 8‑week, live online certification equipping health &amp; life‑science professionals with practical no‑code AI skills.</p>
+    <p><strong>Generative AI for Work &amp; Research Productivity</strong> is an 8‑week, live online certification that equips professionals with no‑code AI skills to automate data analysis, content creation, and routine workflows.</p>
 
     <div class="course-outline">
       <h3>Key Modules</h3>
       <ul>
         <li>Documents, Presentations &amp; Websites – LLM fundamentals, content generation, no‑code development</li>
         <li>Automated Data Analysis – Julius, ChatGPT Code Interpreter, Windsurf dashboards</li>
-        <li>GenAI for Research &amp; Text Analysis – Elicit, LiteRev, advanced text workflows</li>
+        <li>GenAI for Research &amp; Text Analysis – Elicit, LiteRev, knowledge synthesis</li>
         <li>Custom GPTs &amp; Chatbots – RAG systems, Botpress, API integrations</li>
         <li>AI Workflows &amp; Task Automation – Lindy &amp; Make.com orchestration</li>
-        <li>GenAI for Communication &amp; Outreach – Ideogram, InVideo AI, marketing flows</li>
-        <li>Capstone Project &amp; Showcase – solution design &amp; peer feedback</li>
+        <li>GenAI for Communication &amp; Outreach – Ideogram, InVideo AI</li>
+        <li>Capstone Project &amp; Showcase – design &amp; peer feedback</li>
       </ul>
     </div>
   </section>
@@ -143,11 +232,10 @@
       <li>Week 8 – Coming soon</li>
     </ul>
   </section>
-
 </main>
 
 <footer>
-  © 2025 Francois | Site crafted with modern HTML5 &amp; CSS3. No personal contact details published.
+  © 2025 Francois&nbsp;|&nbsp;Crafted with modern HTML5&nbsp;&amp;&nbsp;CSS3. No personal contact details published.
 </footer>
 
 </body>
